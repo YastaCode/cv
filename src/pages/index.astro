@@ -1,6 +1,7 @@
 ---
 import Basic from "../components/Basic.astro";
 import About from "../components/About.astro";
+import WorkExperience from "../components/WorkExperience.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
 import cvData from "../data/cv.json"
@@ -17,6 +18,9 @@ import cvData from "../data/cv.json"
         <Section title="À propos de moi">
             <About basics ={cvData.basics} />
         </Section>
+        <Section title="Expérience Professionnelle">
+            {cvData.work.map(work => <WorkExperience work={work} />)}
+        </Section>
     </main>
 </BaseLayout>
 
@@ -25,7 +29,7 @@ import cvData from "../data/cv.json"
         padding: 1rem;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 2.5rem;
     }
     @media screen and (min-width: 768px){
         main{

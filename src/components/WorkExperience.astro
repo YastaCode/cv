@@ -1,0 +1,139 @@
+---
+interface Props {
+  work: {
+    name: string;
+    position: string;
+    url?: string; // Optionnel
+    startDate: string;
+    endDate: string | null; // Peut être null si toujours en poste
+    summary: string;
+    highlights: string[];
+    keywords: string[];
+  };
+}
+
+const { work } = Astro.props;
+const startDate = new Date(work.startDate);
+const endDate = work.endDate ? new Date(work.endDate) : null;
+const formatDate = (date: Date) => {
+    return new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' }).format(date)
+}
+---
+
+<div class="">
+    <div class="work-experience-header">
+        <div class="company">
+            <h3>{
+                work.url ? <a href={work.url} target="_blanc">{work.name}</a> : work.name
+                }
+            </h3>
+        </div>
+        <div class="date">
+            {formatDate(startDate)} - {endDate ? formatDate(endDate) : 'Aujourd\'hui'}
+        </div>
+    </div>
+    <div class="work-experience-body">
+        <h4>{work.position}</h4>
+        <p>{work.summary}</p>
+        <ul class="highlights">
+            {work.highlights.map((highlight) => <li>{highlight}</li>)}
+        </ul>
+        <div class="keywords">
+            {work.keywords.map((keyword) => 
+                <a href="#" class="keyword" target="_blank">{keyword}</a>
+            )}
+        </div>
+    </div>
+    <br>
+</div>
+
+<style>
+    .work-experience{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .work-experience-header{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.3rem;
+    }}
+    .company h3{
+        font-weight: 500;
+    }
+    .company h3 a{
+        color: #777;
+        transition: .3s ease;
+    }
+    .company h3 a:hover{
+        text-decoration: underline;
+        color: #333;
+        text-transform: capitalize;
+    }
+    .date{
+        font-size: .75rem;
+        color: #777;
+    }
+    .work-experience-body h4{
+        font-size: 1rem;
+        font-weight:300;
+        margin-bottom: 0.3rem;
+        color: #000;
+    }
+    .work-experience-body p{
+        color: #333;
+    }    
+    .highlights{
+        font-size: 0.8rem;
+        list-style-type:circle;
+        margin-left: 1.5rem;
+        margin-top: 0.3rem;
+        color: #999;
+    }
+    .keywords{
+        margin-top: 7px;
+        margin-bottom: 0.6rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        gap: 0.2rem;
+    }
+    .keywords a{
+        background: #f1f1f1;
+        border: 1px solid #e5e5e5;
+        border-radius: 0.2rem;
+        padding: 1px 10px;
+        display: flex;
+        font-size: .75rem;
+        color: #333;
+        transition: .3s ease background;
+    }
+    .keywords a:hover{
+        background: #e1e1e1;
+        border: 1px solid #ed1d1d1;
+    }
+    /*
+    @media screen and (min-width: 768px) {
+        .work-experience-header{
+            align-items: center;
+            gap: 1rem;
+        }
+        .company{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 1rem;
+            h3{
+                padding: 0.5rem 0;
+            }
+        }
+        .work-experience-body{
+            h4{
+                margin-top: 0;
+            }
+        }
+    }
+    */
+</style>
