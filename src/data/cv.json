@@ -1,30 +1,36 @@
 {
     "basics": {
         "image": "/me.webp",
-        "name": "Petros Córdova",
+        "name": {
+            "first": "Petros",
+            "last": "Córdova"
+        },
         "label": "Développeur Back-End avec plus de 5 ans d'expérience et créateur de contenu en programmation Web",
         "email": "jescordova@hotmail.com",
         "phone": "+32 479069836",
         "website": "https://yastacode.dev",
         "summary": "+5 ans d'expérience en tant que développeur Web. Actuellement, je suis créateur de contenu et formateur en programmation. Je vis à Anderlecht, en Belgique. J'ai travaillé dans différents environnements : de l'accélération du développement de start-ups à la direction d'équipes dans des entreprises multinationales.",
         "location": {
-            "address": "Anderlecht",
+            "municipality": "Anderlecht",
             "city": "Bruxelles",
             "country": "Belgique",
             "countryCode": "BE"
         },
         "profiles": [
             {
-                "network": "netlify",
-                "username": "tutos-frontend"
+                "platform": "github",
+                "username": "petros",
+                "url": "https://github.com/YastaCode"
             },
             {
-                "network": "github",
-                "username": "YastaCode"
+                "platform": "linkedin",
+                "username": "petros",
+                "url": "https://linkedin.com/in/jesús-córdova-042087309"
             },
             {
-                "network": "linkedin",
-                "username": "jesús-córdova-042087309"
+                "platform": "yastacode",
+                "username": "petros",
+                "url": "https://tutos-frontend.netlify.app/"
             }
         ]
     }

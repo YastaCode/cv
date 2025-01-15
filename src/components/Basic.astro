@@ -1,57 +1,84 @@
 ---
-import Icon from "./Icon.astro";
-
-const { basics} = Astro.props;
+interface Props{
+    basics: {
+        name: {
+            first: string;
+            last: string;
+        }
+        label: string;
+        email:string;
+        phone: string;
+        website: string;
+        summary: string;
+        location: {
+            city: string;
+            country: string;
+            countryCode: string;
+        },
+        profiles: {
+            platform: string;
+            username: string;
+            url?: string;
+        }[];
+    };
+}
+const {basics} = Astro.props;
 ---
 
 <div class="basics">
+
     <p class="label">{basics.label}</p>
+
+    {/* Location */}
     <address>
         <span>
-            <a href="" target="_blank" title=""><i class="bx bxs-map"></i></a>
+            <a 
+                href={`https://www.google.com/maps/place/<span class="math-inline">\{basics\.location\.city\}\+</span>{basics.location.country}`} 
+                target="_blank" 
+                title="Voir sur Google Maps">
+                <i class="bx bxs-map"></i>
+              </a>
         </span>
         <span>
-            {basics.location.city},
-            {basics.location.country},
-            {basics.location.countryCode}
-        </span>
+            {basics.location.city}, 
+            {basics.location.country} 
+            ({basics.location.countryCode})
+          </span>
     </address>
+
+    {/* Contact */}
     <div class="contact">
         <div class="contact-btns">
-            <a 
-                href={`mailto: ${basics.email}`} 
+            <a
+                href={`mailto:${basics.email}`}
                 target="_blank"
                 title={`Envoyer un mail à: ${basics.email}`}
-            ><i class="bx bxs-envelope"></i>
+            >
+                <i class="bx bxs-envelope"></i>
             </a>
-            <a 
-                href={`tel: ${basics.phone}`}
-                title={`Appeler à: ${basics.name}`}
-            ><i class="bx bxs-phone"></i>
+            <a
+                href={`tel:${basics.phone}`}
+                title={`Appeler à: ${basics.name.first} ${basics.name.last}`}
+            >
+                <i class="bx bxs-phone"></i>
             </a>
-            <a 
-                href={`https://${basics.profiles[0].username}.${basics.profiles[0].network}.app`} 
-                target="_blank"
-                title={`Aller sur le site: ${basics.profiles[0].username}`}
-            ><i class="bx bx-world"></i>
-            </a>
-            <a 
-                href={`https://${basics.profiles[1].network}.com/${basics.profiles[1].username}`} 
-                target="_blank"
-                title={`Aller sur le profil de: ${basics.name} en ${basics.profiles[1].network}`}
-            ><i class="bx bxl-github"></i>
-            </a>
-            <a 
-                href={`https://www.${basics.profiles[2].network}.com/in/${basics.profiles[2].username}`} 
-                target="_blank"
-                title={`Aller sur le profil de: ${basics.name} en ${basics.profiles[2].network}`}
-            ><i class="bx bxl-linkedin-square"></i>
-            </a>
-        </div>
-        <div class="contact-info">
-            <p><a href={`mailto: ${basics.email}`}>{basics.email}</a></p>
+            {basics.profiles.map((profile) => (
+                <a 
+                    href={profile.url || `https://<span class="math-inline">\{profile\.platform\}\.com/</span>{profile.username}`}
+                    target="_blank"
+                    title={`Aller sur le profil de: ${basics.name.first} ${basics.name.last} en ${profile.platform}`}
+                    >
+                    {profile.platform === "github" 
+                        ? (<i class="bx bxl-github"></i>)
+                        : profile.platform === "linkedin"
+                            ? (<i class="bx bxl-linkedin-square"></i>)
+                            : (<i class="bx bx-world"></i>)
+                    }
+                </a>
+            ))}
         </div>
     </div>
+
 </div>
 
 <style>
@@ -60,7 +87,7 @@ const { basics} = Astro.props;
         flex-direction: column;
         justify-content: start;
         align-items:start;
-        gap: 0.5rem;
+        gap: 0.2rem;
     }
     p{
         text-wrap: balance;
@@ -72,7 +99,7 @@ const { basics} = Astro.props;
         gap: 0.3rem;
     }
     address span{
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
     span a{
         margin-left: -0.15rem;
@@ -82,8 +109,10 @@ const { basics} = Astro.props;
     }
     span a:hover{
         transform: translateY(-4px);
+        color: #777;
     }
     .contact-btns{
+        margin-top: 0.3rem;
         display: flex;
         align-items: center;
         gap: 0.2rem;
@@ -102,8 +131,6 @@ const { basics} = Astro.props;
     .contact-btns a:hover{
         background: #f1f1f1f1;
         transform: translateY(-4px);
-    }
-    .contact-info{
-        display: none;
+        color: #777;
     }
 </style>
