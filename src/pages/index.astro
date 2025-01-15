@@ -1,5 +1,6 @@
 ---
 import Basic from "../components/Basic.astro";
+import About from "../components/About.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
 import cvData from "../data/cv.json"
@@ -13,7 +14,9 @@ import cvData from "../data/cv.json"
             </Section>
             <img src="/public/me.webp" alt="">
         </div>
-        
+        <Section title="À propos de moi">
+            <About basics ={cvData.basics} />
+        </Section>
     </main>
 </BaseLayout>
 
