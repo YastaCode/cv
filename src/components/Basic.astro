@@ -1,0 +1,109 @@
+---
+import Icon from "./Icon.astro";
+
+const { basics} = Astro.props;
+---
+
+<div class="basics">
+    <p class="label">{basics.label}</p>
+    <address>
+        <span>
+            <a href="" target="_blank" title=""><i class="bx bxs-map"></i></a>
+        </span>
+        <span>
+            {basics.location.city},
+            {basics.location.country},
+            {basics.location.countryCode}
+        </span>
+    </address>
+    <div class="contact">
+        <div class="contact-btns">
+            <a 
+                href={`mailto: ${basics.email}`} 
+                target="_blank"
+                title={`Envoyer un mail à: ${basics.email}`}
+            ><i class="bx bxs-envelope"></i>
+            </a>
+            <a 
+                href={`tel: ${basics.phone}`}
+                title={`Appeler à: ${basics.name}`}
+            ><i class="bx bxs-phone"></i>
+            </a>
+            <a 
+                href={`https://${basics.profiles[0].username}.${basics.profiles[0].network}.app`} 
+                target="_blank"
+                title={`Aller sur le site: ${basics.profiles[0].username}`}
+            ><i class="bx bx-world"></i>
+            </a>
+            <a 
+                href={`https://${basics.profiles[1].network}.com/${basics.profiles[1].username}`} 
+                target="_blank"
+                title={`Aller sur le profil de: ${basics.name} en ${basics.profiles[1].network}`}
+            ><i class="bx bxl-github"></i>
+            </a>
+            <a 
+                href={`https://www.${basics.profiles[2].network}.com/in/${basics.profiles[2].username}`} 
+                target="_blank"
+                title={`Aller sur le profil de: ${basics.name} en ${basics.profiles[2].network}`}
+            ><i class="bx bxl-linkedin-square"></i>
+            </a>
+        </div>
+        <div class="contact-info">
+            <p><a href={`mailto: ${basics.email}`}>{basics.email}</a></p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .basics{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items:start;
+        gap: 0.5rem;
+    }
+    p{
+        text-wrap: balance;
+    }
+    address{
+        font-style: normal;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+    address span{
+        font-size: 0.8rem;
+    }
+    span a{
+        margin-left: -0.15rem;
+        font-size: 1.1rem;
+        display: flex;
+        transition: .3s ease transform;
+    }
+    span a:hover{
+        transform: translateY(-4px);
+    }
+    .contact-btns{
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+    }
+    .contact-btns a{
+        border: 1px solid #ddd;
+        padding: 0.3rem;
+        border-radius: 0.3rem;
+        font-size: 1.3rem;
+        color: #666;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .3s ease transform;
+    }
+    .contact-btns a:hover{
+        background: #f1f1f1f1;
+        transform: translateY(-4px);
+    }
+    .contact-info{
+        display: none;
+    }
+</style>
