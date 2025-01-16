@@ -2,6 +2,7 @@
 import Basic from "../components/Basic.astro";
 import About from "../components/About.astro";
 import WorkExperience from "../components/WorkExperience.astro";
+import Skills from "../components/Skills.astro";
 import Education from "../components/Education.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
@@ -21,6 +22,11 @@ import cvData from "../data/cv.json"
         </Section>
         <Section title="Expérience Professionnelle">
             {cvData.work.map(work => <WorkExperience work={work} /> )}
+        </Section>
+        <Section title="Compétences">
+            <div class="skills-grid">
+                {cvData.skills.map(skill => <Skills skill={skill} />)}
+            </div>
         </Section>
         <Section title="Education">
             {cvData.education.map(education => <Education education={education} /> )}
@@ -67,5 +73,15 @@ import cvData from "../data/cv.json"
             justify-content: space-between;
             padding-right: 1rem;
         }
+    }
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Colonnes responsives */
+        grid-gap: 1rem; /* Espacement entre les éléments */
+        padding: 1rem;
+        background-color: #f8f8f8; /* Arrière-plan plus clair */
+        border-radius: 8px; /* Bords arrondis */
+        justify-items: center; /* Centre les éléments horizontalement */
+        align-items: center;     /* Centre les éléments verticalement */
     }
 </style>

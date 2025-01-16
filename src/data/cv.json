@@ -52,6 +52,28 @@
             ]
         }
     ],
+    "skills": [
+        {
+            "name": "html5",
+            "url": ""
+        },
+        {
+            "name": "css3",
+            "url": ""
+        },
+        {
+            "name": "react",
+            "url": ""
+        },
+        {
+            "name": "javascript",
+            "url": ""
+        },
+        {
+            "name": "astro",
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5KhCojo9MAD9u7-vbHjYYFzD69By9d-PWcw&s"
+        }
+    ],
     "education": [
         {
             "name": "EAFC-uccle",
@@ -59,14 +81,6 @@
             "startDate": "2010",
             "endDate": null,
             "summary": "Bachelor's Degree in Control systems engineering and Robotics"
-        },
-        {
-            "name": "EAFC-uccle",
-            "url": "https://www.eafc-uccle.be/cours/bachelier-en-informatique-de-gestion/",
-            "startDate": "2010",
-            "endDate": "2020",
-            "summary": "Bachelor's Degree in Control systems engineering and Robotics"
         }
     ]
-    
 }

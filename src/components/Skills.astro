@@ -1,0 +1,54 @@
+---
+const {skill} = Astro.props;
+---
+
+<div class="skills-grid-item"> {/* Ajout d'un conteneur pour chaque élément */}
+    {skill.url
+      ? <a href="#" title={skill.name}><i class={`bx bxl-${skill.name}`}></i></a>
+      : skill.src
+        ? <a href="#" title={skill.name}><img src={skill.src} alt={skill.name} loading="lazy"/></a>
+        : <a href="#" title={skill.name}><i class={`bx bxl-${skill.name}`}></i></a>
+    }
+  </div>
+
+<style>
+    .skills-grid-item { /* Styles pour chaque élément de la grille */
+        display: flex; /* Important pour centrer l'icône ou l'image */
+        justify-content: center;
+        align-items: center;
+        height: 80px; /* Hauteur fixe pour que les éléments soient de même taille */
+        width: 80px;   /* Largeur fixe pour les éléments */
+        background-color: white; /* Fond blanc pour chaque élément */
+        border-radius: 50%; /* Pour un effet de cercle */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+        transition: transform 0.2s ease-in-out; /* Animation au survol */
+    }
+    .skills-grid-item:hover {
+    transform: scale(1.1); /* Agrandit légèrement au survol */
+}
+.skills-grid-item a {
+    font-size: 2.5rem; /* Taille des icônes */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.skills-grid-item img{
+  max-width: 50%;
+  max-height: 50%;
+}
+@media (max-width: 500px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
+    .skills-grid-item{
+      height: 60px;
+      width: 60px;
+    }
+    .skills-grid-item a {
+        font-size: 2rem;
+    }
+}
+</style>
