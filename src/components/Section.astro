@@ -1,0 +1,26 @@
+---
+const {titleName,title} = Astro.props;
+---
+
+<section class="section">
+    {titleName
+        ? <h1>{titleName}</h1>
+        : <h2>{title}</h2>
+    }
+    <div class="section-content">
+        <slot />
+    </div>
+</section>
+
+<style>
+    section{
+        border: 1px solid #f1f1f1;
+        border-radius: 0.5rem;
+        background: #fff;
+        padding: 1rem;
+    }
+    section:first-child{
+        border: 0;
+        border-radius: 0;
+    }
+</style>
