@@ -2,6 +2,7 @@
 import Basic from "../components/Basic.astro";
 import About from "../components/About.astro";
 import WorkExperience from "../components/WorkExperience.astro";
+import Education from "../components/Education.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
 import cvData from "../data/cv.json"
@@ -19,39 +20,49 @@ import cvData from "../data/cv.json"
             <About basics ={cvData.basics} />
         </Section>
         <Section title="Expérience Professionnelle">
-            {cvData.work.map(work => <WorkExperience work={work} />)}
+            {cvData.work.map(work => <WorkExperience work={work} /> )}
         </Section>
     </main>
 </BaseLayout>
 
 <style>
     main{
-        padding: 1rem;
+        padding: 0.5rem 1rem;
         display: flex;
         flex-direction: column;
-        gap: 2.5rem;
+        gap: 2rem;
+    }
+    .basics-header{
+        background: #eee;
+        border: 1px solid #f1f1f1;
+        border-radius: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    .basics-header img{
+        box-shadow: 0 0 5px #444;
+        padding: 0.2rem;
+        border-radius: 0.8rem;
+        width: 110px;
+        transition: .3s ease;
+    }
+    .basics-header img:hover{
+        filter: contrast(80%);
+        transform: scale(1.1);
     }
     @media screen and (min-width: 768px){
         main{
             max-width: 700px;
             margin: 0 auto;
-            padding: 4rem 0;
-            padding-bottom: 0;
+            padding: 3rem 0;
         }
-    }
-    .basics-header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .basics-header img{
-        width: 110px;
-        height: 110px;
-        border: 1px solid #a1a1a1;
-        padding: 0.2rem;
-        border-radius: 0.8rem;
-    }
-    .basics-header img:hover{
-        filter: contrast(80%);
+        .basics-header{
+            flex-wrap: inherit;
+            justify-content: space-between;
+            padding-right: 1rem;
+        }
     }
 </style>

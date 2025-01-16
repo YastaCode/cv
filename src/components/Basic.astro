@@ -26,7 +26,6 @@ const {basics} = Astro.props;
 ---
 
 <div class="basics">
-
     <p class="label">{basics.label}</p>
 
     {/* Location */}
@@ -78,7 +77,6 @@ const {basics} = Astro.props;
             ))}
         </div>
     </div>
-
 </div>
 
 <style>
@@ -86,24 +84,23 @@ const {basics} = Astro.props;
         display: flex;
         flex-direction: column;
         justify-content: start;
-        align-items:start;
+        align-items: center;
         gap: 0.2rem;
     }
     p{
+        text-align: center;
         text-wrap: balance;
     }
     address{
         font-style: normal;
+        font-size: 0.75rem;
         display: flex;
         align-items: center;
         gap: 0.3rem;
     }
-    address span{
-        font-size: 0.75rem;
-    }
     span a{
         margin-left: -0.15rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
         display: flex;
         transition: .3s ease transform;
     }
@@ -119,9 +116,9 @@ const {basics} = Astro.props;
     }
     .contact-btns a{
         border: 1px solid #ddd;
-        padding: 0.3rem;
+        padding: 0.3rem 0.4rem;
         border-radius: 0.3rem;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         color: #666;
         display: flex;
         justify-content: center;
@@ -132,5 +129,14 @@ const {basics} = Astro.props;
         background: #f1f1f1f1;
         transform: translateY(-4px);
         color: #777;
+    }
+    @media screen and (min-width: 768px){
+        .basics{
+            justify-content: start;
+            align-items: start;
+        }
+        p{
+            text-align: inherit;
+        }
     }
 </style>
