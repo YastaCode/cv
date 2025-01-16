@@ -1,6 +1,6 @@
 {
     "basics": {
-        "image": "./me.webp",
+        "image": "/me.webp",
         "name": {
             "first": "Petros",
             "last": "Córdova"
