@@ -1,6 +1,6 @@
 {
     "basics": {
-        "image": "/me.webp",
+        "image": "me.webp",
         "name": {
             "first": "Petros",
             "last": "Córdova"
@@ -66,22 +66,7 @@
             "keywords": [ 
                 "HTML", "CSS", "Drupal", "PHP", "MySQL", "Support Technique"
             ]
-        },
-        {
-            "name": "Euclides",
-            "position": "Développeur Web",
-            "url": "https://euclides.be/fr/home-fr/",
-            "startDate": "2009-01-01",
-            "endDate": "2011-01-01",
-            "summary": "J'ai développé et maintenu des sites web pour de nombreux clients, en utilisant HTML, CSS, Drupal, PHP et MySQL. J'ai également géré un cybercafé et fourni un support technique aux bureaux loués.",
-            "highlights": [
-                "Développement et maintenance de sites web pour de nombreux clients.", 
-                "Gestion d'un cybercafé, fournissant un support technique aux utilisateurs.",
-                "Fourniture de support technique et maintenance des PC pour les bureaux loués."
-            ],
-            "keywords": [ 
-                "HTML", "CSS", "Drupal", "PHP", "MySQL", "Support Technique"
-            ]
         }
     ]
+    
 }
