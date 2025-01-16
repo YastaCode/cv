@@ -22,6 +22,9 @@ import cvData from "../data/cv.json"
         <Section title="Expérience Professionnelle">
             {cvData.work.map(work => <WorkExperience work={work} /> )}
         </Section>
+        <Section title="Education">
+            {cvData.education.map(education => <Education education={education} /> )}
+        </Section>
     </main>
 </BaseLayout>
 
