@@ -4,6 +4,7 @@ import About from "../components/About.astro";
 import WorkExperience from "../components/WorkExperience.astro";
 import Skills from "../components/Skills.astro";
 import Education from "../components/Education.astro";
+import Projects from "../components/Projects.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
 import cvData from "../data/cv.json"
@@ -30,6 +31,11 @@ import cvData from "../data/cv.json"
         </Section>
         <Section title="Education">
             {cvData.education.map(education => <Education education={education} /> )}
+        </Section>
+        <Section title="Projects">
+            <div class="project-grid">
+                {cvData.projects.map(project => <Projects project={project} /> )}
+            </div>
         </Section>
     </main>
 </BaseLayout>
@@ -76,12 +82,20 @@ import cvData from "../data/cv.json"
     }
     .skills-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Colonnes responsives */
-        grid-gap: 1rem; /* Espacement entre les éléments */
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); 
+        grid-gap: 1rem; 
+        background-color: #f8f8f8; 
+        border-radius: 8px; 
+        justify-items: center; 
+        align-items: center; 
         padding: 1rem;
-        background-color: #f8f8f8; /* Arrière-plan plus clair */
-        border-radius: 8px; /* Bords arrondis */
-        justify-items: center; /* Centre les éléments horizontalement */
-        align-items: center;     /* Centre les éléments verticalement */
+    }
+    .project-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 1rem; 
+        border-radius: 8px; 
+        justify-items: center;
+        align-items: center;
     }
 </style>

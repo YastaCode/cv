@@ -72,6 +72,18 @@
         {
             "name": "astro",
             "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5KhCojo9MAD9u7-vbHjYYFzD69By9d-PWcw&s"
+        },
+        {
+            "name": "node",
+            "src": "https://banner2.cleanpng.com/20180410/qgw/avf4qeujo.webp"
+        },
+        {
+            "name": "bootstrap",
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRF_bDBqtT5_oiLSUjuKUxSu8Z0lZFa8oM1F4KjYen6IqzWLjf-hOPwZTa9YanItYBbIA&usqp=CAU"
+        },
+        {
+            "name": "github",
+            "url": ""
         }
     ],
     "education": [
@@ -81,6 +93,28 @@
             "startDate": "2010",
             "endDate": null,
             "summary": "Bachelor's Degree in Control systems engineering and Robotics"
+        }
+    ],
+    "projects": [
+        {
+            "title": "Sites",
+            "summary": "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
+            "tags": ["astro","json","css"]
+        },
+        {
+            "title": "minimalist CV",
+            "summary": "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
+            "tags": ["astro","json","css"]
+        },
+        {
+            "title": "minimalist CV",
+            "summary": "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
+            "tags": ["astro","json","css"]
+        },
+        {
+            "title": "minimalist CV",
+            "summary": "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
+            "tags": ["astro","json","css"]
         }
     ]
 }
